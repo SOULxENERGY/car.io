@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+    margin:0;
+    overflow: hidden;
+    text-align:center ;
+
+}
+#myCanvas{
+    background: rgb(141, 221, 227);
+}
+
+
+    </style>
+</head>
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+
+    <script>
+const canvas = document.getElementById("myCanvas");
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
+
+
+const ctx = canvas.getContext("2d");
+
+
+class drawGround{
+    constructor(x,angle){
+        this.x=x;
+        this.angle=angle;
+        
+
+
+
+    }
+
+
+update(canvas){
+
+    if(this.x<canvas.width){
+        this.x++;
+        this.angle+=0.01;
+    }
+
+
+
+}
+
+
+
+    draw(ctx){
+        ctx.strokeStyle="green";
+        ctx.moveTo(this.x, canvas.height);
+    ctx.lineTo(this.x,70*Math.sin(this.angle)+(canvas.height*0.7));
+    ctx.stroke();
+
+
+    }
+
+
+
+
+};
+
+
+class DrawCar{
+
+constructor(x,y,width,height){
+
+this.x=x;
+this.y=y;
+this.width=width;
+this.height=height;
+
+
+
+}
+update(){
+
+
+
+
+
+}
+
+
+draw(ctx){
+    ctx.beginPath();
+ctx.fillStyle="red";
+ctx.fillRect(this.x,this.y,this.width,this.height);
+ctx.fillStyle="black";
+ctx.arc(this.x+(this.width*0.8),this.y+this.height,15, 0, 2 * Math.PI);
+ctx.arc(this.x+(this.width*0.2),this.y+this.height,15, 0, 2 * Math.PI);
+ctx.fill();
+
+
+
+
+}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+let ground= new drawGround(0,0);
+let car = new DrawCar(50,500,100,50);
+
+
+
+
+
+
+function animate(){
+    ground.draw(ctx);
+    ground.update(canvas);
+    car.draw(ctx);
+
+    requestAnimationFrame(animate)
+
+}
+animate();
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
