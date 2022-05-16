@@ -65,7 +65,7 @@ class DrawCar{
     
     
     this.x+=this.speed;
-    this.y+=70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
+    this.y=70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
             
     
     
