@@ -54,18 +54,18 @@ class DrawCar{
     
     
     if(this.controls.up){
-                this.angle+=0.03;
+              //this.angle+=0.03;
             }
             if(this.controls.down){
-                this.angle-=0.03;
+                //this.angle-=0.03;
             }
     
     
     
     
     
-    this.x+=this.speed*Math.sin(this.angle+Math.PI/2);
-    this.y+=this.speed*Math.cos(this.angle+Math.PI/2);
+    this.x+=this.speed;
+    this.y+=70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
             
     
     
