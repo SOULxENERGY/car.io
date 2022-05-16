@@ -13,6 +13,7 @@ class DrawCar{
             this.maxSpeed=3;
             this.friction=0.01;
             this.angle=0;
+            
     
     
     
@@ -20,10 +21,14 @@ class DrawCar{
     update(){
     if(this.controls.forward){
         this.speed+=this.acceleration;
+        
+        
     };
     
     if(this.controls.reverse){
         this.speed-=this.acceleration;
+        
+        
     };
     
     
@@ -54,10 +59,10 @@ class DrawCar{
     
     
     if(this.controls.up){
-              //this.angle+=0.03;
+               // this.angle+=0.03;
             }
             if(this.controls.down){
-                //this.angle-=0.03;
+              //  this.angle-=0.03;
             }
     
     
@@ -65,7 +70,7 @@ class DrawCar{
     
     
     this.x+=this.speed;
-    this.y=70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
+   this.y =70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
             
     
     
@@ -78,7 +83,7 @@ class DrawCar{
     
         ctx.save();
             ctx.translate(this.x,this.y);
-            ctx.rotate(-this.angle);
+            ctx.rotate(-this.angle1);
         ctx.beginPath();
     ctx.fillStyle="red";
     ctx.fillRect(0,0,this.width,this.height);
