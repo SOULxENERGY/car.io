@@ -71,6 +71,7 @@ class DrawCar{
     
     this.x+=this.speed;
    this.y =70* Math.sin(this.x*0.01)+(canvas.height*0.7-(this.height+15/2));
+   this.angle=   70*Math.cos(this.x*0.01)*0.01;
             
     
     
@@ -83,7 +84,7 @@ class DrawCar{
     
         ctx.save();
             ctx.translate(this.x,this.y);
-            ctx.rotate(-this.angle1);
+            ctx.rotate(this.angle);
         ctx.beginPath();
     ctx.fillStyle="red";
     ctx.fillRect(0,0,this.width,this.height);
